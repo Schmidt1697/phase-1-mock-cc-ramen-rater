@@ -13,6 +13,17 @@ fetch('http://localhost:3000/ramens')
     ramensArr.forEach(renderRamens);
 })
 
+//POST Generalized
+const createNewRamen = (url, body) => {
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    .then(res => res.json())
+}
 
 function renderRamens(ramen){
     
@@ -23,13 +34,8 @@ function renderRamens(ramen){
     ramenImgElement.className = "small-ramen-img"
 
     // add info to img from API
-    // ramenImgElement.id = ramen.id;
-    // ramenImgElement.name = ramen.name;
-    // ramenImgElement.restaurant = ramen.restaurant;
     ramenImgElement.src = ramen.image;
-    // ramenImgElement.rating = ramen.rating;
-    // ramenImgElement.comment = ramen.comment;
-
+    
     //add to DOM
     const ramenImgContainer = document.querySelector('#ramen-menu');
     
@@ -72,39 +78,24 @@ function handleNewRamenForm(e){
         rating: e.target.rating.value,
         comment: e.target['new-comment'].value
     }
-    
-    //render newRamen to DOM
-    renderRamens(newRamen)
+
+    //POST - update db w/ new ramen AND render to DOM
+    createNewRamen('http://localhost:3000/ramens', newRamen)
+    .then(renderRamens(newRamen))
+    .catch(console.error)
+
+    //reset  form after submit
+    ramenForm.reset();
     
 }
 
-//listen for form submit
+//listen for form submit (e.target = form)
 const ramenForm = document.querySelector("#new-ramen");
 ramenForm.addEventListener('submit', handleNewRamenForm)
+
+// console.log(ramenForm)
+
 
 })
 
 
-
-
-
-
-//what to display when image is clicked and pass into event listener but getting undefined
-    // function displayRamenDetails(ramen){
-    //     //access pic div from DOM
-    //     const bigImage = document.querySelector(".detail-image");
-    //     const h2 = document.querySelector(".name");
-    //     const h3Restaurant = document.querySelector(".restaurant");
-
-    //     //access rating and comment elements from DOM
-    //     const spanRating = document.querySelector("#rating-display");
-    //     const pComment = document.querySelector("#comment-display");
-
-    //     //Update DOM contents from pic information
-    //     bigImage.src = ramen.image;
-    //     bigImage.setAttribute('alt',ramen.name);
-    //     h2.textContent = ramen.name;
-    //     h3Restaurant.textContent = ramen.restaurant;
-    //     spanRating.textContent = ramen.rating;
-    //     pComment.textContent = ramen.comment; 
-    // }

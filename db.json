@@ -39,6 +39,30 @@
       "image": "./assets/ramen/kojiro.jpg",
       "rating": 6,
       "comment": "Perfect for a cold night."
+    },
+    {
+      "name": "Banana",
+      "restaurant": "cray banana",
+      "image": "https://media.istockphoto.com/photos/peeled-banana-on-white-background-photo-with-clipping-path-picture-id1154935375?k=20&m=1154935375&s=612x612&w=0&h=TALq0lrR1PI5XuGxqjUnss-tJBIUHuys1lCDbzSrPKU=",
+      "rating": "8",
+      "comment": "yum",
+      "id": 6
+    },
+    {
+      "name": "another banana",
+      "restaurant": "wow",
+      "image": "https://media.istockphoto.com/photos/peeled-banana-on-white-background-photo-with-clipping-path-picture-id1154935375?k=20&m=1154935375&s=612x612&w=0&h=TALq0lrR1PI5XuGxqjUnss-tJBIUHuys1lCDbzSrPKU=",
+      "rating": "4",
+      "comment": "yuck",
+      "id": 7
+    },
+    {
+      "name": "anotha one",
+      "restaurant": "dos",
+      "image": "https://media.istockphoto.com/photos/peeled-banana-on-white-background-photo-with-clipping-path-picture-id1154935375?k=20&m=1154935375&s=612x612&w=0&h=TALq0lrR1PI5XuGxqjUnss-tJBIUHuys1lCDbzSrPKU=",
+      "rating": "6",
+      "comment": "yes",
+      "id": 8
     }
   ]
 }
